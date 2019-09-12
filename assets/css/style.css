@@ -1,0 +1,489 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito:100,200,300,400,500,600");
+/* ------------------ BASIC STYLING ----------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: "Nunito", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.btn {
+  padding: 15px 30px;
+  background: #1fc5af;
+  color: white !important;
+  cursor: pointer;
+  -webkit-transition: background 0.3s;
+  transition: background 0.3s;
+  outline: none 0;
+}
+
+.btn:hover {
+  background: #08ddc1;
+}
+
+.row.margined {
+  margin-top: 60px;
+}
+
+a {
+  color: #1fc5af;
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: #08ddc1;
+}
+
+input:focus, button {
+  outline: 0 none;
+}
+
+/* ------------------ HEADINGS AND TYPOGRAPHY ----------------------- */
+h1 {
+  font-size: 35px;
+  font-weight: 600;
+  letter-spacing: -2px;
+  word-spacing: 2px;
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 52px;
+  }
+}
+
+h2 {
+  font-size: 32px;
+  font-weight: 500;
+}
+
+@media (min-width: 768px) {
+  h2 {
+    font-size: 42px;
+  }
+}
+
+h3 {
+  font-size: 20px;
+  color: black;
+}
+
+p {
+  color: #6c757d;
+  font-size: 16px;
+}
+
+.colored {
+  color: #1fc5af;
+}
+
+/* ------------------ BACKGROUNDS ---------------------- */
+.dark-bg {
+  background: #606264;
+}
+
+.white-bg {
+  background: #fff;
+}
+
+.light-bg {
+  background: #fdfdfd;
+}
+
+/* ------------------ SCROLL TOP BUTTON STYLING  ----------------------- */
+.scrolltop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #fff;
+  color: #606264;
+  text-align: center;
+  font-size: 24px;
+  text-decoration: none;
+  padding: 10px;
+  -webkit-box-shadow: 0px 3px 13px 1px rgba(0, 0, 0, 0.12);
+          box-shadow: 0px 3px 13px 1px rgba(0, 0, 0, 0.12);
+  -webkit-transition: background, color 0.3s linear;
+  transition: background, color 0.3s linear;
+  z-index: i00;
+}
+
+.scrolltop:hover {
+  background: #1fc5af;
+  color: #fff;
+}
+
+/* ------------------ NAVIGATION ----------------------- */
+nav.navbar {
+  padding-top: 22px;
+  padding-bottom: 22px;
+  background: #fff !important;
+  width: 100% !important;
+}
+
+nav.navbar.shadowed {
+  -webkit-box-shadow: 0 3px 6px 4px rgba(0, 0, 0, 0.02);
+          box-shadow: 0 3px 6px 4px rgba(0, 0, 0, 0.02);
+}
+
+@media (min-width: 992px) {
+  nav.navbar {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+}
+
+nav.navbar h2 {
+  font-size: 22px;
+  color: #1fc5af;
+  font-weight: 200;
+  margin: 0;
+}
+
+nav.navbar .nav-item a:link,
+nav.navbar .nav-item a:visited {
+  font-size: 17px;
+  text-decoration: none;
+}
+
+@media (min-width: 992px) {
+  nav.navbar .nav-item {
+    margin-right: 18px;
+  }
+  nav.navbar .nav-item:last-child {
+    margin-right: 0px;
+  }
+}
+
+nav.navbar button.navbar-toggler {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+nav.navbar .navbar-collapse {
+  margin-top: 15px;
+  padding: 20px;
+  border-top: 2px solid #1fc5af;
+  background: white;
+}
+
+@media (min-width: 992px) {
+  nav.navbar .navbar-collapse {
+    margin-top: 0px;
+    padding: 0x;
+    border-top: none;
+    background: initial;
+  }
+}
+
+/* ------------------ HERO ----------------------- */
+section.hero {
+  display: table;
+  position: relative;
+  background-image: url(../img/hero.jpg);
+  background-size: cover;
+  background-position: top;
+  padding: 150px 30px;
+  color: #fff;
+  width: 100%;
+  height: 100vh;
+}
+
+section.hero:after {
+  content: "";
+  z-index: 0;
+  position: absolute;
+  background: -webkit-gradient(linear, left top, right bottom, from(#32d8a1c0), to(#1fdadab4));
+  background: linear-gradient(to right bottom, #32d8a1c0, #1fdadab4);
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+section.hero .container-fluid {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+  width: 100%;
+}
+
+section.hero .hero-text-box {
+  max-width: 768px;
+  margin: 0 auto;
+}
+
+section.hero .sub {
+  color: white;
+  text-transform: uppercase;
+  font-size: 16px;
+}
+
+section.hero .hero-header {
+  margin-bottom: 18px;
+}
+
+section.hero p.tagline {
+  text-transform: none;
+  font-size: 18px;
+  font-weight: 500;
+  color: white;
+}
+
+section.hero .hero-btn {
+  margin-top: 20px;
+  border: 3px solid white;
+  border-radius: 8px;
+  background: none;
+  -webkit-transition: background 0.5s;
+  transition: background 0.5s;
+}
+
+section.hero .hero-btn:hover {
+  background: white;
+  color: #1fc5af !important;
+}
+
+/* ------------------ SECTIONS STYLING  ----------------------- */
+section.padded-section {
+  padding: 120px 15px;
+}
+
+/* ------------------ FEATURES SECTION STYLING  ----------------------- */
+.section-features .features-icon {
+  font-size: 45px;
+  height: 100px;
+  width: 100px;
+  -webkit-box-shadow: 0px 2px 18px 0px rgba(198, 198, 198, 0.3);
+          box-shadow: 0px 2px 18px 0px rgba(198, 198, 198, 0.3);
+  text-align: center;
+  padding: 20px 0px;
+  border-radius: 100%;
+  color: #606264;
+  margin: 0 auto;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.section-features .features-icon:hover {
+  background: #1fc5af;
+  color: white;
+}
+
+/* ------------------ FIGURES SECTION STYLING  ----------------------- */
+.section-figures {
+  padding: 60px 15px;
+}
+
+.section-figures .figures-icon {
+  font-size: 50px;
+  color: white;
+}
+
+.section-figures .figure-number {
+  font-size: 40px;
+  color: white;
+  font-weight: 600;
+}
+
+.section-figures .figure-text {
+  color: white;
+  font-size: 22px;
+}
+
+/* ------------------ SERVICES SECTION STYLING  ----------------------- */
+.section-services .service-icon {
+  color: #606264;
+  font-size: 30px;
+  margin-right: 25px;
+}
+
+.section-services .service-content {
+  margin-top: 10px;
+}
+
+.section-services .service-title {
+  line-height: 1.43;
+}
+
+/* ------------------ PORTFOLIO SECTION STYLING  ----------------------- */
+.section-portfolio .portfolio-block {
+  position: relative;
+  text-align: center;
+  -webkit-box-shadow: 0px 0px 20px #eee;
+          box-shadow: 0px 0px 20px #eee;
+}
+
+.section-portfolio .portfolio-content {
+  background: #fff;
+  padding: 40px 10px;
+}
+
+.section-portfolio .work-cat {
+  color: #1fc5af;
+}
+
+.section-portfolio .overlay-content {
+  position: absolute;
+  content: "";
+  margin-top: -15%;
+  top: 50%;
+  left: 40%;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.section-portfolio .overlay-content i {
+  width: 60px;
+  height: 60px;
+  display: block;
+  background: #fff;
+  text-align: center;
+  padding-top: 22px;
+  border-radius: 100%;
+}
+
+.section-portfolio .portfolio-block:before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.section-portfolio .portfolio-block:hover .overlay-content,
+.section-portfolio .portfolio-block:hover:before {
+  opacity: 1;
+  visibility: visible;
+}
+
+.section-portfolio .overlay-content a:focus,
+.section-portfolio .overlay-content a:hover {
+  text-decoration: none;
+}
+
+/* ------------------ CONTACT SECTION STYLING  ----------------------- */
+.section-contact input.form-control {
+  height: 50px;
+  padding-left: 15px;
+  border: 1px solid #ddd;
+}
+
+.section-contact textarea {
+  border-radius: 3px;
+  padding: 10px 15px !important;
+}
+
+.section-contact .form-group {
+  margin-bottom: 20px;
+}
+
+.section-contact .submit {
+  margin-top: 15px;
+}
+
+.section-contact ::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  font-size: 13px;
+}
+
+.section-contact ::-moz-placeholder {
+  /* Firefox 19+ */
+  font-size: 13px;
+}
+
+.section-contact :-ms-input-placeholder {
+  /* IE 10+ */
+  font-size: 13px;
+}
+
+.section-contact :-moz-placeholder {
+  /* Firefox 18- */
+  font-size: 13px;
+}
+
+/* ------------------ FOOTER STYLING  ----------------------- */
+footer {
+  padding-top: 80px;
+}
+
+footer .footer-brand {
+  text-decoration: none !important;
+}
+
+footer .widget-title {
+  font-size: 24px;
+  color: white;
+}
+
+footer p {
+  color: #cfcccc;
+}
+
+footer ul.footer-contacts {
+  list-style-type: none;
+}
+
+footer ul.footer-contacts li {
+  font-size: 16px;
+  color: #cfcccc;
+}
+
+footer ul.footer-contacts span {
+  color: white;
+  margin-right: 8px;
+}
+
+footer .footer-newsletter-form input {
+  height: 40px;
+  background-color: #ffffff;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border: none;
+  font-size: 14px;
+  padding: 0 15px;
+}
+
+footer .footer-newsletter-form button {
+  padding: 8px 15px;
+  background: #1fc5af;
+  color: white;
+  border: none;
+  border-radius: 2px;
+}
+
+footer ul.social-links li {
+  margin-right: 10px !important;
+}
+
+footer ul.social-links li:last-child {
+  margin-right: 0px;
+}
+
+footer ul.social-links a {
+  color: white;
+}
+
+footer .footer-copy {
+  border-top: 1px solid #6e6d6d;
+  padding: 50px 10px;
+}
+/*# sourceMappingURL=style.css.map */

@@ -1,0 +1,539 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito:100,200,300,400,500,600");
+
+// REQUIRED VARIABLES
+
+$colors: (
+  primary: #1fc5af,
+  dark-primary: #08ddc1,
+  secondary: #606264,
+  hero-overlay: linear-gradient(to right bottom, #32d8a1c0, #1fdadab4),
+  light: #fdfdfd,
+  white: #fff
+);
+
+$desktop-width: 768px;
+$nav-desktop-width: 992px;
+
+$default-font: "Nunito", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+$paddings: (
+  section: 120px 15px
+);
+
+// REQUIRED MIXINS
+
+@mixin nav-desktop {
+  @media (min-width: #{$nav-desktop-width}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+//REQUIRED FUNCTIONS
+
+@function color($color-key) {
+  @return map-get($colors, $color-key);
+}
+
+@function padding($padding-key) {
+  @return map-get($paddings, $padding-key);
+}
+
+/* ------------------ BASIC STYLING ----------------------- */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $default-font;
+}
+
+.btn {
+  padding: 15px 30px;
+  background: color(primary);
+  color: white !important;
+  cursor: pointer;
+  transition: background 0.3s;
+  outline: none 0;
+}
+
+.btn:hover {
+  background: color(dark-primary);
+}
+
+.row.margined {
+  // max-width: 1140px;
+  margin-top: 60px;
+}
+
+a {
+  color: color(primary);
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: color(dark-primary);
+}
+
+input:focus, button {
+  outline: 0 none;
+}
+
+/* ------------------ HEADINGS AND TYPOGRAPHY ----------------------- */
+
+h1 {
+  font-size: 35px;
+  font-weight: 600;
+  letter-spacing: -2px;
+  word-spacing: 2px;
+
+  @include desktop {
+    font-size: 52px;
+  }
+}
+
+h2 {
+  font-size: 32px;
+  font-weight: 500;
+  color: color(dark-headings);
+
+  @include desktop {
+    font-size: 42px;
+  }
+}
+
+h3 {
+  font-size: 20px;
+  color: black;
+}
+
+p {
+  color: #6c757d;
+  font-size: 16px;
+}
+
+.colored {
+  color: color(primary);
+}
+
+/* ------------------ BACKGROUNDS ---------------------- */
+
+.dark-bg {
+  background: color(secondary);
+}
+
+.white-bg {
+  background: color(white);
+}
+
+.light-bg {
+  background: color(light);
+}
+
+/* ------------------ SCROLL TOP BUTTON STYLING  ----------------------- */
+.scrolltop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: color(white);
+  color: color(secondary);
+  text-align: center;
+  font-size: 24px;
+  text-decoration: none;
+  padding: 10px;
+  box-shadow: 0px 3px 13px 1px rgba(0, 0, 0, 0.12);
+  transition: background, color 0.3s linear;
+  z-index: i00;
+
+  &:hover {
+    background: color(primary);
+    color: color(white);
+  }
+}
+
+/* ------------------ NAVIGATION ----------------------- */
+
+nav.navbar {
+  padding-top: 22px;
+  padding-bottom: 22px;
+  background: color(white) !important;
+  width: 100% !important;
+
+  &.shadowed {
+    box-shadow: 0 3px 6px 4px rgba(0, 0, 0, 0.02);
+  }
+
+  @include nav-desktop {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  h2 {
+    font-size: 22px;
+    color: color(primary);
+    font-weight: 200;
+    margin: 0;
+  }
+
+  .nav-item {
+    a:link,
+    a:visited {
+      font-size: 17px;
+      text-decoration: none;
+    }
+    @include nav-desktop() {
+      margin-right: 18px;
+
+      &:last-child {
+        margin-right: 0px;
+      }
+    }
+  }
+
+  button.navbar-toggler {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 17px;
+  }
+
+  .navbar-collapse {
+    margin-top: 15px;
+    padding: 20px;
+    border-top: 2px solid color(primary);
+    background: white;
+
+    @include nav-desktop {
+      & {
+        margin-top: 0px;
+        padding: 0x;
+        border-top: none;
+        background: initial;
+      }
+    }
+  }
+}
+
+/* ------------------ HERO ----------------------- */
+
+section.hero {
+  display: table;
+  position: relative;
+  background-image: url(../img/hero.jpg);
+  background-size: cover;
+  background-position: top;
+  padding: 150px 30px;
+  color: #fff;
+  width: 100%;
+  height: 100vh;
+
+  &:after {
+    content: "";
+    z-index: 0;
+    position: absolute;
+    background: color(hero-overlay);
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+  }
+
+  .container-fluid {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+    width: 100%;
+  }
+
+  .hero-text-box {
+    max-width: 768px;
+    margin: 0 auto;
+  }
+
+  .sub {
+    color: white;
+    text-transform: uppercase;
+    font-size: 16px;
+  }
+
+  .hero-header {
+    margin-bottom: 18px;
+  }
+
+  p.tagline {
+    text-transform: none;
+    font-size: 18px;
+    font-weight: 500;
+    color: white;
+  }
+
+  .hero-btn {
+    margin-top: 20px;
+    border: 3px solid white;
+    border-radius: 8px;
+    background: none;
+    transition: background 0.5s;
+  }
+
+  .hero-btn:hover {
+    background: white;
+    color: color(primary) !important;
+  }
+}
+
+/* ------------------ SECTIONS STYLING  ----------------------- */
+
+section {
+  &.padded-section {
+    padding: padding(section);
+  }
+}
+
+/* ------------------ FEATURES SECTION STYLING  ----------------------- */
+
+.section-features {
+  .features-icon {
+    font-size: 45px;
+    height: 100px;
+    width: 100px;
+    box-shadow: 0px 2px 18px 0px rgba(198, 198, 198, 0.3);
+    text-align: center;
+    padding: 20px 0px;
+    border-radius: 100%;
+    color: color(secondary);
+    margin: 0 auto;
+    transition: all 0.5s;
+  }
+
+  .features-icon:hover {
+    background: color(primary);
+    color: white;
+  }
+}
+
+
+/* ------------------ FIGURES SECTION STYLING  ----------------------- */
+
+.section-figures {
+  padding: 60px 15px;
+
+  .figures-icon {
+    font-size: 50px;
+    color: white;
+  }
+
+  .figure-number {
+    font-size: 40px;
+    color: white;
+    font-weight: 600;
+  }
+
+  .figure-text {
+    color: white;
+    font-size: 22px;
+  }
+}
+
+/* ------------------ SERVICES SECTION STYLING  ----------------------- */
+
+.section-services {
+  .service-icon {
+    color: color(secondary);
+    font-size: 30px;
+    margin-right: 25px;
+  }
+
+  .service-content {
+    margin-top: 10px;
+  }
+
+  .service-title {
+    line-height: 1.43;
+  }
+}
+
+/* ------------------ PORTFOLIO SECTION STYLING  ----------------------- */
+
+.section-portfolio {
+  .portfolio-block {
+    position: relative;
+    text-align: center;
+    box-shadow: 0px 0px 20px #eee;
+  }
+
+  .portfolio-content {
+    background: color(white);
+    padding: 40px 10px;
+  }
+
+  .work-cat {
+    color: color(primary);
+  }
+
+  .overlay-content {
+    position: absolute;
+    content: "";
+    margin-top: -15%;
+    top: 50%;
+    left: 40%;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .overlay-content i {
+    width: 60px;
+    height: 60px;
+    display: block;
+    background: #fff;
+    text-align: center;
+    padding-top: 22px;
+    border-radius: 100%;
+  }
+
+  .portfolio-block:before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .portfolio-block:hover .overlay-content,
+  .portfolio-block:hover:before {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .overlay-content a:focus,
+  .overlay-content a:hover {
+    text-decoration: none;
+  }
+}
+
+/* ------------------ CONTACT SECTION STYLING  ----------------------- */
+
+.section-contact {
+  input.form-control {
+    height: 50px;
+    padding-left: 15px;
+    border: 1px solid#ddd;
+  }
+
+  textarea {
+    border-radius: 3px;
+    padding: 10px 15px !important;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .submit {
+    margin-top: 15px;
+  }
+  ::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+
+    font-size: 13px;
+  }
+  ::-moz-placeholder {
+    /* Firefox 19+ */
+    font-size: 13px;
+  }
+  :-ms-input-placeholder {
+    /* IE 10+ */
+    font-size: 13px;
+  }
+  :-moz-placeholder {
+    /* Firefox 18- */
+    font-size: 13px;
+  }
+}
+
+/* ------------------ FOOTER STYLING  ----------------------- */
+
+footer {
+  padding-top: 80px;
+
+  .footer-brand {
+    text-decoration: none !important;
+  }
+
+  .widget-title {
+    font-size: 24px;
+    color: white;
+  }
+
+  p {
+    color: rgb(207, 204, 204);
+  }
+
+  ul.footer-contacts {
+    list-style-type: none;
+
+    li {
+      font-size: 16px;
+      color: rgb(207, 204, 204);
+    }
+
+    span {
+      color: white;
+      margin-right: 8px;
+    }
+  }
+
+  .footer-newsletter-form {
+    input {
+      height: 40px;
+      background-color: #ffffff;
+      border-top-left-radius: 0px;
+      border-bottom-left-radius: 0px;
+      border: none;
+      font-size: 14px;
+      padding: 0 15px;
+    }
+
+    button {
+      padding: 8px 15px;
+      background: color(primary);
+      color: white;
+      border: none;
+      border-radius: 2px;
+    }
+  }
+
+  ul.social-links {
+    li {
+      margin-right: 10px !important;
+
+      &:last-child {
+        margin-right: 0px;
+      }
+    }
+    a {
+      color: white;
+    }
+  }
+
+  .footer-copy {
+    border-top: 1px solid rgb(110, 109, 109);
+    padding: 50px 10px;
+  }
+}
